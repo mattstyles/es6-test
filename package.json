@@ -1,0 +1,22 @@
+{
+  "name": "gulp-build",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-traceur": "^0.4.0",
+    "gulp": "^3.6.2",
+    "gulp-rimraf": "0.0.10",
+    "gulp-browserify": "^0.5.0",
+    "es6ify": "^1.1.0",
+    "vinyl-source-stream": "^0.1.1",
+    "browserify": "^3.44.2",
+    "gulp-uglify": "^0.2.1",
+    "uglifyify": "^2.1.1"
+  }
+}
