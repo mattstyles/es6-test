@@ -17,6 +17,8 @@
     "vinyl-source-stream": "^0.1.1",
     "browserify": "^3.44.2",
     "gulp-uglify": "^0.2.1",
-    "uglifyify": "^2.1.1"
+    "uglifyify": "^2.1.1",
+    "gulp-streamify": "0.0.5",
+    "jquery": "^2.1.0"
   }
 }

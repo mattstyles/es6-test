@@ -3,7 +3,8 @@ var gulp = require( 'gulp' ),
     traceur = require( 'gulp-traceur' ),
     rimraf = require( 'gulp-rimraf' ),
     gulpBrowserify = require( 'gulp-browserify' ),
-    // uglify = require( 'gulp-uglify' ),
+    gulpUglify = require( 'gulp-uglify' ),
+    streamify = require( 'gulp-streamify' ),
 
     browserify = require( 'browserify' ),
     source = require( 'vinyl-source-stream' ),
@@ -86,13 +87,17 @@ gulp.task( 'es6', [ 'clean' ], function() {
 
     // Setting debug to true and uglify on makes this pretty darned small
     return browserify()
-        .add( es6ify.runtime )
+        // Adding the runtime here seems to cause some issues
+        // .add( es6ify.runtime )
         // .transform( es6ify.configure( /^(?!.*node_modules)+.+\.js$/ ) )
         .transform( es6ify )
         // .transform( uglify )
         .require( require.resolve(  './lib/scripts/main.js' ), {
             entry: true
         })
+        // .require( require.resolve(  './lib/scripts/jq.js' ), {
+        //     entry: true
+        // })
         .bundle( {
             debug: true,
             sourceMap: true
@@ -102,6 +107,7 @@ gulp.task( 'es6', [ 'clean' ], function() {
         })
         .on( 'error', console.log )
         .pipe( source( 'main.js' ) )
+        // .pipe( streamify( gulpUglify() ) )
         .pipe( gulp.dest( './dist/' ) );
 
     // return browserify( './lib/scripts/main.js' )
