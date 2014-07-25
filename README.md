@@ -7,7 +7,7 @@
 gulp traceur
 ```
 
-Yeah, it works too.
+Yeah, it works too. Doesnt handle the requires though obviously.
 
 Set `experimental: true` for some features to work (like `let`).
 
@@ -22,10 +22,14 @@ Use `es6ify.traceurOverrides = { blockBinding: true };` to enforce experimental 
 Or `experimental: true`.
 
 
-Both need the traceur runtime, es6ify can supply this:
-
 ```
 gulp es6
 ```
 
 This is lovely and works great.
+
+
+### notes
+
+All three require `../traceur-compiler/bin/traceur.js`.
+With `traceur` included there is no need to add `es6ify.runtime`, however, adding `es6ify.runtime` knackers modules anyway. (version?).

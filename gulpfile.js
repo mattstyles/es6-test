@@ -65,7 +65,7 @@ gulp.task( 'build', [ 'clean' ], function() {
             transform: [
                 'es6ify'
             ],
-            add: es6ify.runtime,
+            // add: es6ify.runtime,
             entry: true
         }))
         .on( 'error', function( err ) {
