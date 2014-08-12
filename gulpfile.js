@@ -52,20 +52,21 @@ gulp.task( 'traceur', [ 'clean' ], function() {
 gulp.task( 'build', [ 'clean' ], function() {
 
     es6ify.traceurOverrides = {
-        // blockBinding: true
+        blockBinding: true,
         experimental: true
     };
 
     return gulp
-        .src( 'lib/scripts/*.js', {
+        // .src( 'lib/scripts/*.js', {
+        .src( 'lib/scripts/main.js', {
             read: false
         })
         .pipe( gulpBrowserify({
+            add: es6ify.runtime,
             debug: true,
             transform: [
                 'es6ify'
             ],
-            // add: es6ify.runtime,
             entry: true
         }))
         .on( 'error', function( err ) {
@@ -88,7 +89,7 @@ gulp.task( 'es6', [ 'clean' ], function() {
     // Setting debug to true and uglify on makes this pretty darned small
     return browserify()
         // Adding the runtime here seems to cause some issues
-        // .add( es6ify.runtime )
+        .add( es6ify.runtime )
         // .transform( es6ify.configure( /^(?!.*node_modules)+.+\.js$/ ) )
         .transform( es6ify )
         // .transform( uglify )
