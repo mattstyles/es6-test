@@ -19,7 +19,7 @@
     "gulp-uglify": "^0.2.1",
     "uglifyify": "^2.1.1",
     "gulp-streamify": "0.0.5",
-    "jquery": "^2.1.0",
+    "jquery": "^3.5.0",
 
     "test": "0.0.0",
     "es6-test": "0.0.0"
